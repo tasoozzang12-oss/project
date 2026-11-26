@@ -3,9 +3,25 @@
   --gold: #ffbe33;
   --charcoal: #222831;
   --red: #762b25;
+  --page: #fff;
+  --text: #21180c;
+  --visit: var(--cream);
+  --menu-label: var(--cream);
+  --menu-label-text: var(--red);
+  --divider: var(--red);
 }
 
-body { font-family: "Malgun Gothic", sans-serif; word-break: keep-all; }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --page: #1d1917;
+  --text: #fff2dc;
+  --visit: #2b2220;
+  --menu-label: #442a26;
+  --menu-label-text: #ffd3b8;
+  --divider: #d98d7a;
+}
+
+body { background: var(--page); color: var(--text); font-family: "Malgun Gothic", sans-serif; word-break: keep-all; }
 h1, h2 { font-family: inherit; font-weight: 800; letter-spacing: -.055em; }
 a:focus-visible { outline: 2px solid #cd8425; outline-offset: 5px; }
 
@@ -26,7 +42,9 @@ a:focus-visible { outline: 2px solid #cd8425; outline-offset: 5px; }
 }
 .wordmark { color: var(--cream); font: 800 1.5rem/1 Georgia, serif; letter-spacing: -.05em; }
 .wordmark:hover, .wordmark:focus { color: var(--gold); }
-.pub-nav-links { display: flex; flex-wrap: wrap; column-gap: clamp(1rem, 4vw, 2.5rem); }
+.pub-nav-links { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem clamp(1rem, 4vw, 2.5rem); }
+.theme-toggle { border: 1px solid currentColor; border-radius: .35rem; padding: .35rem .7rem; background: transparent; color: var(--cream); font-size: .875rem; cursor: pointer; }
+.theme-toggle:focus-visible { outline: 2px solid var(--gold); outline-offset: 4px; }
 .pub-nav-links a, .footer-links a { color: var(--cream); padding-block: .5rem; }
 .pub-nav-links a:hover, .footer-links a:hover { color: var(--gold); }
 .slider_section { padding: 5rem 0; }
@@ -48,8 +66,8 @@ a:focus-visible { outline: 2px solid #cd8425; outline-offset: 5px; }
   min-height: 10rem;
   place-content: center;
   padding: 1rem;
-  background: var(--cream);
-  color: var(--red);
+  background: var(--menu-label);
+  color: var(--menu-label-text);
   text-align: center;
   font: 800 clamp(1.7rem, 4vw, 2.6rem)/1 Georgia, serif;
 }
@@ -57,9 +75,9 @@ a:focus-visible { outline: 2px solid #cd8425; outline-offset: 5px; }
 .food_section .detail-box p { margin-bottom: 0; font-size: 1rem; }
 .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
 .about-mark { color: var(--gold); font: 800 clamp(2rem, 7vw, 5.5rem)/1 Georgia, serif; letter-spacing: -.07em; margin: 0; }
-.visit { background: var(--cream); }
+.visit { background: var(--visit); }
 .visit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 0; }
-.visit-grid > div { border-top: 1px solid var(--red); padding-top: .75rem; }
+.visit-grid > div { border-top: 1px solid var(--divider); padding-top: .75rem; }
 .visit-grid dd { margin: .3rem 0 0; }
 .footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0 .5rem; }
 .footer_section .credits, .credits a { color: #d4cabe; font-size: .875rem; }
