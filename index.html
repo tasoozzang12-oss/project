@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="페이스트 F&amp;B와 올드페퍼, 체다페퍼, 츄러스홀릭을 소개합니다.">
+  <title>PASTE F&amp;B | 페이스트</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #fffaf0;
+      --ink: #201a17;
+      --muted: #62554d;
+      --line: #d9cfc2;
+      --orange: #a83a20;
+      --display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
+      --body: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.65 var(--body); word-break: keep-all; }
+    a { color: inherit; }
+    a:focus-visible { outline: 2px solid var(--orange); outline-offset: 5px; }
+    .skip-link { position: absolute; z-index: 1; top: .75rem; left: .75rem; padding: .5rem 1rem; background: var(--paper); }
+    .skip-link:not(:focus) { clip-path: inset(50%); }
+    h1, h2, h3, p { margin: 0; }
+    .wrap { width: min(100% - 3rem, 76rem); margin-inline: auto; }
+    .header { border-bottom: 1px solid var(--line); }
+    .nav { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .logo { text-decoration: none; display: inline-flex; align-items: baseline; gap: .45rem; font: 900 1.45rem/1 var(--display); letter-spacing: -.07em; }
+    .logo span { color: var(--orange); font-size: .8rem; letter-spacing: .02em; }
+    .nav-link { font-size: .9375rem; font-weight: 700; text-underline-offset: .32em; }
+    .nav-link:hover { color: var(--orange); }
+
+    .hero { display: grid; grid-template-columns: 1.35fr 1fr; gap: 3rem; align-items: end; padding-block: clamp(4rem, 9vw, 8.25rem); }
+    .hero h1 { width: fit-content; font: 950 clamp(5rem, 14vw, 13rem)/.8 var(--display); letter-spacing: -.105em; }
+    .hero h1 span { display: block; margin: .95rem 0 0 .25rem; color: var(--orange); font: 800 clamp(1rem, 2.5vw, 1.6rem)/1 var(--display); letter-spacing: .24em; }
+    .hero-copy { border-left: 1px solid var(--line); padding-left: clamp(1.25rem, 3vw, 2.5rem); }
+    .hero-copy h2 { font-size: clamp(1.55rem, 3.2vw, 2.65rem); line-height: 1.25; letter-spacing: -.055em; }
+    .hero-copy p { margin-top: 1rem; color: var(--muted); }
+    .button { display: inline-block; margin-top: 1.4rem; padding: .55rem 1.05rem; border: 1px solid var(--ink); text-decoration: none; font-size: .9375rem; font-weight: 700; }
+    .button:hover { background: var(--ink); color: var(--paper); }
+
+    .brands { padding-block: 1.5rem clamp(3.5rem, 8vw, 6rem); border-top: 1px solid var(--ink); }
+    .section-title { margin-bottom: 1.2rem; font-size: 1.25rem; letter-spacing: -.035em; }
+    .brand-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+    .brand { border-bottom: 1px solid var(--line); }
+    .brand-art { min-height: 13.5rem; aspect-ratio: 1.55; display: grid; place-items: center; padding: 1rem; text-align: center; }
+    .brand-art span { display: inline-block; }
+    .oldpepper { color: #fff0d5; background: #762b25; }
+    .oldpepper span { border-block: 2px solid currentColor; padding: .12em .12em .19em; font: 800 clamp(1.6rem, 3vw, 2.55rem)/1.1 Georgia, serif; letter-spacing: -.06em; }
+    .cheddarpepper { color: #291b11; background: #f3ad36; }
+    .cheddarpepper span { transform: rotate(-7deg); font: 950 clamp(2.25rem, 5vw, 4.1rem)/.77 var(--display); letter-spacing: -.09em; }
+    .churrosholic { color: #f6cdb4; background: #41241f; }
+    .churrosholic span { font: italic 700 clamp(2.35rem, 5vw, 4.3rem)/.77 Georgia, serif; letter-spacing: -.085em; }
+    .brand-copy { padding: 1.15rem 0 1.4rem; }
+    .brand-copy h3 { font-size: 1.2rem; letter-spacing: -.045em; }
+    .brand-copy p { margin-top: .3rem; color: var(--muted); }
+    .lotto { padding-block: 1.5rem 3.5rem; border-top: 1px solid var(--ink); }
+    .lotto button { background: var(--orange); color: white; border-color: var(--orange); font-family: inherit; cursor: pointer; }
+    .lotto button:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
+    .lotto output { display: grid; gap: .75rem; }
+    .lotto-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+    .lotto output:not(:empty) { margin-top: 1.25rem; }
+    .lotto-number { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: #762b25; color: white; font-weight: 800; }
+    .footer { border-top: 1px solid var(--line); }
+    .footer .wrap { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    @media (max-width: 50rem) {
+      .hero { grid-template-columns: 1fr; gap: 2.25rem; }
+      .hero-copy { border-left: 0; padding-left: 0; }
+      .brand-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .brand-art { aspect-ratio: auto; }
+    }
+    @media (max-width: 25rem) {
+      .wrap { width: calc(100% - 2rem); }
+      .hero h1 { font-size: clamp(4rem, 21vw, 5rem); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">본문 바로가기</a>
+  <header class="header">
+    <nav class="nav wrap" aria-label="주 메뉴">
+      <a class="logo" href="#top" aria-label="페이스트 F앤B, 맨 위로">PASTE <span>F&amp;B</span></a>
+      <a class="nav-link" href="#brands">브랜드</a>
+      <a class="nav-link" href="#lotto">로또 번호 추천</a>
+    </nav>
+  </header>
+  <main class="wrap" id="main" tabindex="-1">
+    <section class="hero" aria-labelledby="paste-title">
+      <h1 id="paste-title">PASTE <span>F&amp;B</span></h1>
+      <div class="hero-copy">
+        <h2>세 가지 브랜드,<br>저마다의 맛</h2>
+        <p>페이스트는 올드페퍼, 체다페퍼, 츄러스홀릭을 한곳에 모은 F&amp;B 브랜드 그룹입니다.</p>
+        <a class="button" href="#brands">브랜드 둘러보기</a>
+      </div>
+    </section>
+    <section class="brands" id="brands" aria-labelledby="brands-title">
+      <h2 class="section-title" id="brands-title">페이스트의 브랜드</h2>
+      <div class="brand-grid">
+        <article class="brand">
+          <div class="brand-art oldpepper" aria-hidden="true"><span>OLDPEPPER</span></div>
+          <div class="brand-copy">
+            <h3><a href="oldpepper/index.html">올드페퍼</a></h3>
+            <p>로티세리 치킨, 베이비백립과 맥주를 즐기는 미국식 BBQ 펍.</p>
+          </div>
+        </article>
+        <article class="brand">
+          <div class="brand-art cheddarpepper" aria-hidden="true"><span>CHEDDAR<br>PEPPER</span></div>
+          <div class="brand-copy">
+            <h3>체다페퍼</h3>
+            <p>[체다페퍼의 대표 메뉴와 브랜드 특징을 입력하세요.]</p>
+          </div>
+        </article>
+        <article class="brand">
+          <div class="brand-art churrosholic" aria-hidden="true"><span>CHURROS<br>HOLIC</span></div>
+          <div class="brand-copy">
+            <h3>츄러스홀릭</h3>
+            <p>바삭하고 달콤한 츄러스를 즐기는 디저트 브랜드.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="lotto" id="lotto" aria-labelledby="lotto-title">
+      <h2 class="section-title" id="lotto-title">로또 번호 추천</h2>
+      <p>1부터 45까지의 숫자 중 중복 없이 6개씩 뽑아 5개 조합을 보여줍니다.</p>
+      <button class="button" id="lotto-draw" type="button">번호 뽑기</button>
+      <output id="lotto-result" aria-label="추천 번호" aria-atomic="true"></output>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="wrap">
+      <a class="logo" href="#top" aria-label="페이스트 F앤B, 맨 위로">PASTE <span>F&amp;B</span></a>
+      <a class="nav-link" href="#top">맨 위로</a>
+    </div>
+  </footer>
+  <script>
+    const lottoButton = document.getElementById('lotto-draw');
+    const lottoResult = document.getElementById('lotto-result');
+
+    function makeLottoRow() {
+      const pool = Array.from({ length: 45 }, (_, index) => index + 1);
+      const numbers = Array.from({ length: 6 }, () => {
+        const index = Math.floor(Math.random() * pool.length);
+        return pool.splice(index, 1)[0];
+      });
+
+      const balls = numbers.sort((first, second) => first - second).map(number => {
+        const ball = document.createElement('span');
+        ball.className = 'lotto-number';
+        ball.textContent = number;
+        return ball;
+      });
+
+      const row = document.createElement('span');
+      row.className = 'lotto-row';
+      row.append(...balls);
+      return row;
+    }
+
+    lottoButton.addEventListener('click', () => {
+      const rows = Array.from({ length: 5 }, makeLottoRow);
+      lottoResult.replaceChildren(...rows);
+    });
+  </script>
+</body>
+</html>
