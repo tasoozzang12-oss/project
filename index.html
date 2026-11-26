@@ -76,6 +76,22 @@
     .lotto-row { display: flex; flex-wrap: wrap; gap: .5rem; }
     .lotto output:not(:empty) { margin-top: 1.25rem; }
     .lotto-number { display: grid; place-items: center; width: 2.75rem; height: 2.75rem; border-radius: 50%; background: #762b25; color: white; font-weight: 800; }
+    .partnership { padding-block: 1.5rem 3.5rem; border-top: 1px solid var(--ink); }
+    .partnership-form { display: grid; gap: 1rem; max-width: 36rem; }
+    .partnership-field { display: grid; gap: .35rem; font-weight: 700; }
+    .partnership-field :is(input, textarea) {
+      width: 100%;
+      padding: .6rem .75rem;
+      border: 1px solid var(--line);
+      border-radius: .35rem;
+      background: var(--paper);
+      color: var(--ink);
+      font: inherit;
+      font-weight: 400;
+    }
+    .partnership-field textarea { resize: vertical; }
+    .partnership-form :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+    .partnership-form .button { justify-self: start; margin-top: 0; background: var(--orange); color: var(--button-ink); border-color: var(--orange); font-family: inherit; cursor: pointer; }
     .footer { border-top: 1px solid var(--line); }
     .footer .wrap { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     @media (max-width: 50rem) {
@@ -100,6 +116,7 @@
       <a class="logo" href="#top" aria-label="페이스트 F앤B, 맨 위로">PASTE <span>F&amp;B</span></a>
       <a class="nav-link" href="#brands">브랜드</a>
       <a class="nav-link" href="#lotto">로또 번호 추천</a>
+      <a class="nav-link" href="#partnership">제휴 문의</a>
       <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden>다크 모드</button>
     </nav>
   </header>
@@ -143,6 +160,24 @@
       <p>1부터 45까지의 숫자 중 중복 없이 6개씩 뽑아 5개 조합을 보여줍니다.</p>
       <button class="button" id="lotto-draw" type="button">번호 뽑기</button>
       <output id="lotto-result" aria-label="추천 번호" aria-atomic="true"></output>
+    </section>
+    <section class="partnership" id="partnership" aria-labelledby="partnership-title">
+      <h2 class="section-title" id="partnership-title">제휴 문의</h2>
+      <form class="partnership-form" action="https://formspree.io/f/mrpqdzrd" method="post">
+        <label class="partnership-field">
+          이름
+          <input type="text" name="name" autocomplete="name" maxlength="100" required>
+        </label>
+        <label class="partnership-field">
+          답변받을 이메일
+          <input type="email" name="email" autocomplete="email" maxlength="254" required>
+        </label>
+        <label class="partnership-field">
+          문의 내용
+          <textarea name="message" rows="5" maxlength="4000" required></textarea>
+        </label>
+        <button class="button" type="submit">문의 보내기</button>
+      </form>
     </section>
   </main>
   <footer class="footer">
