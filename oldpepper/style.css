@@ -1,0 +1,76 @@
+:root {
+  --cream: #fff2dc;
+  --gold: #ffbe33;
+  --charcoal: #222831;
+  --red: #762b25;
+}
+
+body { font-family: "Malgun Gothic", sans-serif; word-break: keep-all; }
+h1, h2 { font-family: inherit; font-weight: 800; letter-spacing: -.055em; }
+a:focus-visible { outline: 2px solid #cd8425; outline-offset: 5px; }
+
+.hero_area { min-height: min(760px, 90vh); background: #171514; }
+.bg-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(17, 13, 12, .92), rgba(17, 13, 12, .24));
+}
+.header_section, .slider_section { position: relative; }
+.pub-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: .75rem 2rem;
+}
+.wordmark { color: var(--cream); font: 800 1.5rem/1 Georgia, serif; letter-spacing: -.05em; }
+.wordmark:hover, .wordmark:focus { color: var(--gold); }
+.pub-nav-links { display: flex; flex-wrap: wrap; column-gap: clamp(1rem, 4vw, 2.5rem); }
+.pub-nav-links a, .footer-links a { color: var(--cream); padding-block: .5rem; }
+.pub-nav-links a:hover, .footer-links a:hover { color: var(--gold); }
+.slider_section { padding: 5rem 0; }
+.slider_section .hero-copy { max-width: 31rem; }
+.slider_section .hero-copy h1 { font-size: clamp(3.25rem, 8vw, 6.5rem); }
+.slider_section .hero-copy p { font-size: 1.05rem; line-height: 1.75; }
+.slider_section .hero-copy .eyebrow { color: var(--gold); font-size: .85rem; font-weight: 800; letter-spacing: .15em; }
+.slider_section .detail-box a, .about_section .detail-box a {
+  background-color: var(--gold);
+  color: #21180c;
+  font-weight: 700;
+}
+.slider_section .detail-box a:hover, .about_section .detail-box a:hover { background-color: #f6d179; }
+
+.menu-grid > article { display: flex; }
+.food_section .box { width: 100%; overflow: hidden; }
+.menu-label {
+  display: grid;
+  min-height: 10rem;
+  place-content: center;
+  padding: 1rem;
+  background: var(--cream);
+  color: var(--red);
+  text-align: center;
+  font: 800 clamp(1.7rem, 4vw, 2.6rem)/1 Georgia, serif;
+}
+.food_section .detail-box h3 { font-size: 1.2rem; font-weight: 750; }
+.food_section .detail-box p { margin-bottom: 0; font-size: 1rem; }
+.about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+.about-mark { color: var(--gold); font: 800 clamp(2rem, 7vw, 5.5rem)/1 Georgia, serif; letter-spacing: -.07em; margin: 0; }
+.visit { background: var(--cream); }
+.visit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin: 1.5rem 0 0; }
+.visit-grid > div { border-top: 1px solid var(--red); padding-top: .75rem; }
+.visit-grid dd { margin: .3rem 0 0; }
+.footer-links { display: flex; justify-content: center; gap: 1.5rem; margin: 1rem 0 .5rem; }
+.footer_section .credits, .credits a { color: #d4cabe; font-size: .875rem; }
+.credits a { text-decoration: underline; }
+
+@media (max-width: 767px) {
+  .hero_area { min-height: 0; }
+  .bg-box img { object-position: 65%; }
+  .bg-box::after { background: rgba(17, 13, 12, .66); }
+  .slider_section { padding: 4rem 0 5rem; }
+  .layout_padding { padding: 3.5rem 0; }
+  .about-content, .visit-grid { grid-template-columns: 1fr; }
+  .about_section .detail-box { margin-bottom: 0; }
+}
