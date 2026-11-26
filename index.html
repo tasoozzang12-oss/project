@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="페이스트 F&amp;B와 올드페퍼, 체다페퍼, 츄러스홀릭을 소개합니다.">
   <title>PASTE F&amp;B | 페이스트</title>
+  <script src="theme.js"></script>
   <style>
     :root {
       color-scheme: light;
@@ -13,8 +14,18 @@
       --muted: #62554d;
       --line: #d9cfc2;
       --orange: #a83a20;
+      --button-ink: #fff;
       --display: "Arial Black", "Helvetica Neue", Arial, sans-serif;
       --body: Pretendard, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+    }
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #201a17;
+      --ink: #fff4e8;
+      --muted: #d6c4b7;
+      --line: #806a5f;
+      --orange: #ff9e80;
+      --button-ink: #201a17;
     }
     *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -26,7 +37,7 @@
     h1, h2, h3, p { margin: 0; }
     .wrap { width: min(100% - 3rem, 76rem); margin-inline: auto; }
     .header { border-bottom: 1px solid var(--line); }
-    .nav { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .nav { min-height: 4.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem 1rem; padding-block: .5rem; }
     .logo { text-decoration: none; display: inline-flex; align-items: baseline; gap: .45rem; font: 900 1.45rem/1 var(--display); letter-spacing: -.07em; }
     .logo span { color: var(--orange); font-size: .8rem; letter-spacing: .02em; }
     .nav-link { font-size: .9375rem; font-weight: 700; text-underline-offset: .32em; }
@@ -57,7 +68,9 @@
     .brand-copy h3 { font-size: 1.2rem; letter-spacing: -.045em; }
     .brand-copy p { margin-top: .3rem; color: var(--muted); }
     .lotto { padding-block: 1.5rem 3.5rem; border-top: 1px solid var(--ink); }
-    .lotto button { background: var(--orange); color: white; border-color: var(--orange); font-family: inherit; cursor: pointer; }
+    .lotto button { background: var(--orange); color: var(--button-ink); border-color: var(--orange); font-family: inherit; cursor: pointer; }
+    .theme-toggle { border: 1px solid currentColor; border-radius: .35rem; padding: .4rem .7rem; background: transparent; color: var(--ink); font: inherit; font-size: .875rem; cursor: pointer; }
+    .theme-toggle:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
     .lotto button:focus-visible { outline: 2px solid var(--orange); outline-offset: 4px; }
     .lotto output { display: grid; gap: .75rem; }
     .lotto-row { display: flex; flex-wrap: wrap; gap: .5rem; }
@@ -87,6 +100,7 @@
       <a class="logo" href="#top" aria-label="페이스트 F앤B, 맨 위로">PASTE <span>F&amp;B</span></a>
       <a class="nav-link" href="#brands">브랜드</a>
       <a class="nav-link" href="#lotto">로또 번호 추천</a>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" hidden>다크 모드</button>
     </nav>
   </header>
   <main class="wrap" id="main" tabindex="-1">
