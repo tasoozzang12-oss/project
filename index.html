@@ -92,6 +92,8 @@
     .partnership-field textarea { resize: vertical; }
     .partnership-form :focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
     .partnership-form .button { justify-self: start; margin-top: 0; background: var(--orange); color: var(--button-ink); border-color: var(--orange); font-family: inherit; cursor: pointer; }
+    .comments { padding-block: 1.5rem 3.5rem; border-top: 1px solid var(--ink); }
+    .comments noscript { color: var(--muted); }
     .footer { border-top: 1px solid var(--line); }
     .footer .wrap { min-height: 4.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
     @media (max-width: 50rem) {
@@ -179,6 +181,11 @@
         <button class="button" type="submit">문의 보내기</button>
       </form>
     </section>
+    <section class="comments" aria-labelledby="comments-title">
+      <h2 class="section-title" id="comments-title">댓글</h2>
+      <div id="disqus_thread"></div>
+      <noscript>댓글을 보려면 자바스크립트를 켜 주세요. <a href="https://disqus.com/?ref_noscript">Disqus</a></noscript>
+    </section>
   </main>
   <footer class="footer">
     <div class="wrap">
@@ -214,6 +221,17 @@
       const rows = Array.from({ length: 5 }, makeLottoRow);
       lottoResult.replaceChildren(...rows);
     });
+  </script>
+  <script>
+    window.disqus_config = function () {
+      this.page.url = 'https://tasoozzang12-oss.github.io/project/';
+      this.page.identifier = 'paste-fnb-home';
+    };
+
+    const disqusScript = document.createElement('script');
+    disqusScript.src = 'https://paste-3.disqus.com/embed.js';
+    disqusScript.setAttribute('data-timestamp', Date.now());
+    document.head.appendChild(disqusScript);
   </script>
 </body>
 </html>
